@@ -39,4 +39,9 @@ public class CalculatorTest {
 		assertEquals(6, Calculator.add("1\n2,3"));
 	}
 
+	// Test 6 - Handle a different delimiter
+	@Test
+	public void differentDelimeter(){
+		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
 }

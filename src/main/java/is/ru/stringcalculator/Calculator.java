@@ -6,6 +6,9 @@ public class Calculator {
 		if (text.equals("")) {
 	    	return 0;
 		}
+		else if(text.startsWith("//")){
+			return diffDelimeter(text);
+		}
 		else if(text.contains(",") || text.contains("\n")) {
 			return sum(splitNumbers(text));
 		}
@@ -24,9 +27,15 @@ public class Calculator {
 
 	private static int sum(String[] numbers){
 		int result = 0;
-		for (String number : numbers){
-			result += toInt(number);
+		for (String string : numbers){
+			result += toInt(string);
 		}
 		return result;
+	}
+
+	private static int diffDelimeter(String string){
+		String numbS = string.substring(4, 7);
+		String[] numbers = numbS.split(";");
+		return sum(numbers);
 	}
 }
