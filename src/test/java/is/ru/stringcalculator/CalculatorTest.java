@@ -66,4 +66,11 @@ public class CalculatorTest {
 	public void delimeterOfAntLength(){		
 		assertEquals(6, Calculator.add("//[***]\n1***2***3"));
 	}
+
+	// Test 10 - Allow multiple delimiters
+	@Test
+	public void multipleDelimeter(){
+		assertEquals(6, Calculator.add("//[*][%]\n1*2%3"));
+	}
+
 }

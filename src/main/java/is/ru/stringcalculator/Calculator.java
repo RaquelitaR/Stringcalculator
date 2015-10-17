@@ -40,6 +40,25 @@ public class Calculator {
 		numbers = numbers.substring(newLine + 1);
 		return numbers.split(del);
 	}
+
+
+	// Test 10 - Allow multiple delimiters
+	private static String[] multipleDel(String numbers) {
+		int newLine = numbers.indexOf("^//(.+)\\n(.*)$");
+		int firstDelEnd = numbers.indexOf(']');
+		String delimeters = numbers.substring(3, firstDelEnd + 1);
+
+		for (int i = firstDelEnd; i < newLine; i++) {
+			if (numbers.charAt(i) == '[') {
+				delimeters += "|\\" + numbers.substring(i + 1, numbers.indexOf(']', i));
+			}
+		}
+		numbers = numbers.substring(newLine + 1);
+		return numbers.split("[\\D|\\" + delimeters + "]");
+	}
+
+
+
 	
 	//------------------------------------------------------//
 	private static int sum(String[] numbers){
