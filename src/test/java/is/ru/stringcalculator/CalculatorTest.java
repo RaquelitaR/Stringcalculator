@@ -64,7 +64,7 @@ public class CalculatorTest {
 
 	// Test 9 - Delimeters can be of any length
 	@Test
-	public void delimeterOfAntLength(){		
+	public void delimeterOfAnyLength(){		
 		assertEquals(6, Calculator.add("//[***]\n1***2***3"));
 	}
 
@@ -80,4 +80,9 @@ public class CalculatorTest {
 		assertEquals(16, Calculator.add("//=)%\n6/$!10"));
 	}
 
+	// Test 12 - Lets check if the code handles even longer string 
+	@Test
+	public void delimeterOfLonger() {
+		assertEquals(22, Calculator.add("//[*][*/$][@][!!]\n1+1|$3+6@#2)9"));
+	}
 }
