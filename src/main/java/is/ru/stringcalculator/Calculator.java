@@ -12,7 +12,7 @@ public class Calculator {
 		else if(text.contains(",") || text.contains("\n")) {
 			return sum(splitNumbers(text));
 		}
-		else return 1;
+		else return toInt(text);
 	
 	}
 
@@ -27,9 +27,14 @@ public class Calculator {
 
 	private static int sum(String[] numbers){
 		int result = 0;
+		String negative = "";
 		for (String string : numbers){
+			if(string.equals("") || string == null) continue;
+			if(toInt(string) < 0) negative = negative.concat(string + ",");
 			result += toInt(string);
-		}
+		}	
+		if(!negative.equals(""))
+		throw new RuntimeException("Negative not allowd:" + negative.substring(0, negative.length() -1));	
 		return result;
 	}
 
