@@ -11,6 +11,8 @@ public class Calculator {
 				
 		else if (text.contains("//[")) return sum(delOfAnyLength(text));
 
+		else if (text.contains("][")) return sum(multipleDel(text));
+
 		else if(text.contains(",") || text.contains("\n")) return sum(splitNumbers(text));
 		
 		return toInt(text);	
