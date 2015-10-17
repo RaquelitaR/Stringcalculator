@@ -16,7 +16,7 @@ public class Calculator {
 	
 	}
 
-	//Refactor
+	//Refactor - Smiðir
 	private static int toInt(String number){
 	    return Integer.parseInt(number);
 	}
@@ -29,10 +29,16 @@ public class Calculator {
 		int result = 0;
 		String negative = "";
 		for (String string : numbers){
+			// Ignore emptry strings
 			if(string.equals("") || string == null) continue;
+			// Ignore negative numbers
 			if(toInt(string) < 0) negative = negative.concat(string + ",");
+			// Ignore number bigger than 1000
+			if (toInt(string) > 1000) continue;
+
 			result += toInt(string);
-		}	
+		}
+		// Negative number will throw an exception
 		if(!negative.equals(""))
 		throw new RuntimeException("Negative not allowd:" + negative.substring(0, negative.length() -1));	
 		return result;

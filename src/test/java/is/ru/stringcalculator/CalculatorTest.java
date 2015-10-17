@@ -49,10 +49,16 @@ public class CalculatorTest {
 	@Test
 	public void negativeNumber(){
 		try{
-			Calculator.add("-1,1,-2");
+			Calculator.add("2,-4,3,-5");
 		}
 		catch (RuntimeException ex){
-			assertEquals("Negative numbers not allowed: -1, -2", ex.getMessage());
+			assertEquals("Negative numbers not allowed: -4, -5", ex.getMessage());
 		}		
+	}
+
+	//Test 8 - Numbers bigger than 1000 should be ignored
+	@Test
+	public void ignoreBiggerThousend(){
+		assertEquals(2, Calculator.add("1001, 2"));
 	}
 }
