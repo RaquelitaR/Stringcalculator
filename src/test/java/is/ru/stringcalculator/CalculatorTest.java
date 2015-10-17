@@ -1,3 +1,4 @@
+
 package is.ru.stringcalculator;
 
 import static org.junit.Assert.assertEquals;
@@ -71,6 +72,12 @@ public class CalculatorTest {
 	@Test
 	public void multipleDelimeter(){
 		assertEquals(6, Calculator.add("//[*][%]\n1*2%3"));
+	}
+
+	// Test 11 - Handle more different delimiter
+	@Test
+	public void anotherDifferentDelimeter() {
+		assertEquals(16, Calculator.add("//=)%\n6/$!10"));
 	}
 
 }
