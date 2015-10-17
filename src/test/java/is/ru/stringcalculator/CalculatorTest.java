@@ -48,17 +48,22 @@ public class CalculatorTest {
 	// Test 7 - Negative number will throw an exception
 	@Test
 	public void negativeNumber(){
-		try{
-			Calculator.add("2,-4,3,-5");
-		}
-		catch (RuntimeException ex){
-			assertEquals("Negative numbers not allowed: -4, -5", ex.getMessage());
+		try {
+			Calculator.add("-1,1,-2");	
+		} catch (RuntimeException ex) {
+			assertEquals("Negatives not allowed: -1,-2", ex.getMessage());
 		}		
 	}
 
 	//Test 8 - Numbers bigger than 1000 should be ignored
 	@Test
-	public void ignoreBiggerThousend(){
-		assertEquals(2, Calculator.add("1001, 2"));
+	public void ignoreBiggerThousand(){
+		assertEquals(2, Calculator.add("1001,2"));
+	}
+
+	// Test 9 - Delimeters can be of any length
+	@Test
+	public void delimeterOfAntLength(){		
+		assertEquals(6, Calculator.add("//[***]\n1***2***3"));
 	}
 }
