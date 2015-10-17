@@ -33,5 +33,10 @@ public class CalculatorTest {
 		assertEquals(15, Calculator.add("1,2,3,4,5"));
 	}
 
+	// Test 5 - Allow new lines and commas between numbers
+	@Test
+	public void newLine(){
+		assertEquals(6, Calculator.add("1\n2\n3"));
+	}
 
 }
